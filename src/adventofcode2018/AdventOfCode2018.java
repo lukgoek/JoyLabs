@@ -16,7 +16,6 @@ public class AdventOfCode2018 {
     
     static void createMenu(){
         System.out.println("");
-        System.out.println("");
         System.out.println("-- Advent Of Code 2018 --");
         System.out.println("**********************************************************");
         System.out.println("*  Day 1: Chronal Calibration press (1)                  *");
