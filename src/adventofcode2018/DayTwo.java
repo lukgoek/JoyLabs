@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -51,8 +52,8 @@ public class DayTwo {
         }
         
         //count if the String contains 2 or 3 letters
-        for (HashMap.Entry<String, Integer> entry : counterMap.entrySet()) {
-            if(entry.getValue() == 2){
+        for (Map.Entry<String, Integer> entry : counterMap.entrySet()) {
+            if(entry.getValue() == 2 ){
                 haveTwo++;
             }else if(entry.getValue() == 3){
                 haveThree++;
@@ -62,9 +63,9 @@ public class DayTwo {
 	}
         
         //Checks if the letter appears more that two times.
-        if(haveTwo >= 2 && haveThree == 0){
+        if(haveTwo >= 2){
             haveTwo = 1;
-        }else if(haveTwo == 0 && haveThree >= 2){
+        }else if( haveThree >= 2){
             haveThree = 1;
         }
         
