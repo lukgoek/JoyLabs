@@ -3,13 +3,16 @@ package adventofcode2018;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class DayTwo {
     Chooser objChooser = new Chooser();
+    ArrayList<String> inputArray = new ArrayList<String>(); 
     int haveTwo = 0;
     int haveThree = 0;
     
@@ -23,11 +26,15 @@ public class DayTwo {
         
         try{
             BufferedReader reader = new BufferedReader(new FileReader(objChooser.getFile()));
+            System.out.println("*  ");
             String inputData;
             while((inputData = reader.readLine()) != null){
                 dayTwoLogic(inputData);
+                inputArray.add(inputData);
             }
-            System.out.println("* CHECKSUM RESULT: "+ pairCount+ " * "+tertiaryCount+" = "+(pairCount*tertiaryCount));
+            
+            System.out.println("*  CHECKSUM RESULT: "+ pairCount+ " * "+tertiaryCount+" = "+(pairCount*tertiaryCount));
+            System.out.println("*  COMMON LETTERS BETWEEN THE TWO CORRECT BOX IDS: ["+dayTwoSimilars()+"]");
             System.out.println("**********************************************************");
         }catch(Exception ex){
            Logger.getLogger(DayTwo.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,7 +59,7 @@ public class DayTwo {
         }
         
         //count if the String contains 2 or 3 letters
-        for (Map.Entry<String, Integer> entry : counterMap.entrySet()) {
+        for(Map.Entry<String, Integer> entry : counterMap.entrySet()) {
             if(entry.getValue() == 2 ){
                 haveTwo++;
             }else if(entry.getValue() == 3){
@@ -68,9 +75,36 @@ public class DayTwo {
         }else if( haveThree >= 2){
             haveThree = 1;
         }
+            
         
         //Sum pairs and tertiaries 
         pairCount += haveTwo;
         tertiaryCount += haveThree;
+    }
+    
+    
+    protected String dayTwoSimilars(){
+        int counter=0;
+        int maxcounter =0;
+        String haveSimilar = "";
+        
+        for(int i=0; i<this.inputArray.size(); i++){
+            for(int j=0; j<this.inputArray.size(); j++){
+                for(int k=0; k<this.inputArray.get(i).length(); k++){
+                    if(!this.inputArray.get(i).equals(this.inputArray.get(j))){
+                        if(this.inputArray.get(i).charAt(k) == this.inputArray.get(j).charAt(k)){
+                            counter++;
+                            if(counter > maxcounter){
+                                maxcounter = counter;
+                                haveSimilar = this.inputArray.get(i);
+                                //System.out.println("THIS ONE HAVE HIGEST SIMILITUDES "+haveSimilar+"]["+this.inputArray.get(j));
+                            }
+                        } 
+                    }
+                }
+                counter = 0;
+            }
+        }
+        return haveSimilar.substring(0, maxcounter);
     }
 }

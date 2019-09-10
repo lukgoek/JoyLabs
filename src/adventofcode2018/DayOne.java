@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +33,7 @@ public class DayOne {
         showMeFrequencies = input.next();
         
         System.out.println("*  Select you file input to continue. ");
+        System.out.println("*  ");
         try {
             BufferedReader reader = new  BufferedReader(new FileReader(objChooser.getFile()));
             String inputData;
@@ -53,8 +53,8 @@ public class DayOne {
                 }
             }
             
-            System.out.println("*  After all the changes in the list one time the frequency is: "+firstRunLastFrequency);
-            System.out.println("*  First repeated frequency for over and over: "+firstRepeatedFrequency);
+            System.out.println("*  AFTER ALL THE CHANGES IN THE LIST ONE TIME THE FREQUENCY WAS: "+firstRunLastFrequency);
+            System.out.println("*  FIRST REPEATED FREQUENCY FOR OVER AND OVER: "+firstRepeatedFrequency);
         } catch (Exception ex) {
             Logger.getLogger(DayOne.class.getName()).log(Level.SEVERE, null, ex);
             AdventOfCode2018.createMenu();
@@ -67,14 +67,14 @@ public class DayOne {
         }
         this.currentFrequency+=(changeOf);
         
+        //find the first repeated frequency
         if(hasBeenSeen == false){
             if(usedFrequencies.containsKey(""+this.currentFrequency)){
                 hasBeenSeen = true;
-                firstRepeatedFrequency = ""+this.currentFrequency;
-                
+                firstRepeatedFrequency = ""+this.currentFrequency; 
             }
-            
         }
         usedFrequencies.put(""+this.currentFrequency, 1);   
     }
+    
 }
