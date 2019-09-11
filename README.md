@@ -13,12 +13,15 @@
 6. Run the main class with **"java AdventOfCode2018"** command.
 
 
-## How the program works:
-    Note: all the day results will be displayed ain the following way:
-        PART A: [result here]
-        PART B: [result here]
+## How the program works
+#### Note 1
+    All the day results will be displayed in the following way:
+    PART A: [result here]
+    PART B: [result here]
+### Note 2
+    My inut files were addded int **AdventOfCode2018\src\inputs**
         
-### Day 1:
+### Day 1 Chronal Calibration
     Will ask you for **"Enter the starting frequency: "** 
         0 will be the best option ;D
     Then **"Do you want to see all frequencies? Y/N(faster option):"**
@@ -26,17 +29,22 @@
     Now a **"JChooserDialog"** will appear select the file **"Day1Input.txt"** from the **"..\src\inputs"** folder. 
     Results will be displayed in the screen
 
-### Day 2 Inventory Management System:
+### Day 2 Inventory Management System
     This is the most easy one to use just select your file input like **"Day2Input.txt"** from **"..\src\inputs"** folder and see the magic.
     
-### Day 4 Repose Record:
+### Day 4 Repose Record
     Will ask **"Do you want to see the chronological order? Y/N:"**
-        if you selected Y, then on the screen all the input sorted will appear.
+        if you selected Y, then on the screen all the input sorted will appear like below.
+        [1518-02-01 00:02] Guard #137 begins shift
+        [1518-02-01 00:39] falls asleep
+        [1518-02-01 00:55] wakes up
+        [1518-02-01 23:56] Guard #2441 begins shift
+        ...
     Second question is "Do you want to see the visually records? Y/N:"
         Basically you will see the records in a visually way like in the AdventOfCode page.
         DATE    ID  MINUTE
                     000000000011111111112222222222333333333344444444445555555555
                     012345678901234567890123456789012345678901234567890123456789
         02-01 #137  .......................................################.....
-                and more and more rows...
-    last thing to do here is to select the input file like **"Day2Input.txt"** from **"..\src\inputs"** folder.
+        ...
+    Last thing to do here is to select the input file like **"Day4Input.txt"** from **"..\src\inputs"** folder.
