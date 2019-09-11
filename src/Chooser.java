@@ -1,15 +1,12 @@
-package adventofcode2018;
+
 
 import java.io.File;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author lugoe
- */
 public class Chooser {
     JFileChooser fileChooser = new JFileChooser();
     
+    //@return the happy path of a file selected 
     protected File getFile() throws Exception{
         File selectedFile = null;
         int returnVal = fileChooser.showOpenDialog(fileChooser);

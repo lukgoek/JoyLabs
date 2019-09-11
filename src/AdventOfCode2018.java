@@ -1,4 +1,4 @@
-package adventofcode2018;
+
 
 import java.util.Scanner;
 
@@ -14,6 +14,7 @@ public class AdventOfCode2018 {
         objAdvent.createMenu();
     }
     
+    //Creates a single menu for Advent Of Code 2018
     static void createMenu(){
         System.out.println("");
         System.out.println("-- Advent Of Code 2018 --");

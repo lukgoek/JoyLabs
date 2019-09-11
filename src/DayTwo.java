@@ -1,4 +1,4 @@
-package adventofcode2018;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,6 +19,7 @@ public class DayTwo {
     int pairCount = 0;
     int tertiaryCount =0;
     
+    //Creates a single menu for Day 2, 2018
     protected void dayTwoMenu(){
         System.out.println("**********************************************************");
         System.out.println("*  You are in Day 2: Inventory Management System ");
@@ -33,8 +34,8 @@ public class DayTwo {
                 inputArray.add(inputData);
             }
             
-            System.out.println("*  CHECKSUM RESULT: "+ pairCount+ " * "+tertiaryCount+" = "+(pairCount*tertiaryCount));
-            System.out.println("*  COMMON LETTERS BETWEEN THE TWO CORRECT BOX IDS: ["+dayTwoSimilars()+"]");
+            System.out.println("*  PART A: "+ pairCount+ " * "+tertiaryCount+" = "+(pairCount*tertiaryCount));
+            System.out.println("*  PART B: ["+dayTwoSimilars()+"]");
             System.out.println("**********************************************************");
         }catch(Exception ex){
            Logger.getLogger(DayTwo.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,6 +43,8 @@ public class DayTwo {
         }
     }
         
+    //Search into the input provided pairs and tertiaries 
+    //then save them into variables to produce the CHECKSUM result
     protected void dayTwoLogic(String data) throws IOException{
         haveTwo = 0;
         haveThree = 0;
@@ -83,6 +86,7 @@ public class DayTwo {
     }
     
     
+    //Iterates the input strings and comparete them to find which are the most similiars
     protected String dayTwoSimilars(){
         int counter=0;
         int maxcounter =0;
@@ -97,7 +101,6 @@ public class DayTwo {
                             if(counter > maxcounter){
                                 maxcounter = counter;
                                 haveSimilar = this.inputArray.get(i);
-                                //System.out.println("THIS ONE HAVE HIGEST SIMILITUDES "+haveSimilar+"]["+this.inputArray.get(j));
                             }
                         } 
                     }

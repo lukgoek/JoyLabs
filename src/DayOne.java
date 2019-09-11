@@ -1,4 +1,4 @@
-package adventofcode2018;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,10 +8,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author lugoe
- */
 public class DayOne {
     Chooser objChooser = new Chooser();
     int currentFrequency = 0;
@@ -24,6 +20,8 @@ public class DayOne {
     String firstRunLastFrequency = null;
     String firstRepeatedFrequency = null;
     
+    //Creates a single menu for Day 1, 2018
+    //Store in a variable the result after the first run from all the input frequencies 
     protected void dayOneMenu(){
         System.out.println("**********************************************************");
         System.out.println("*  You are in Day 1: Chronal Calibration ");
@@ -53,14 +51,17 @@ public class DayOne {
                 }
             }
             
-            System.out.println("*  AFTER ALL THE CHANGES IN THE LIST ONE TIME THE FREQUENCY WAS: "+firstRunLastFrequency);
-            System.out.println("*  FIRST REPEATED FREQUENCY FOR OVER AND OVER: "+firstRepeatedFrequency);
+            System.out.println("*  PART A: "+firstRunLastFrequency);
+            System.out.println("*  PART B: "+firstRepeatedFrequency);
+            System.out.println("**********************************************************");
         } catch (Exception ex) {
             Logger.getLogger(DayOne.class.getName()).log(Level.SEVERE, null, ex);
             AdventOfCode2018.createMenu();
         }
     }
 
+    //sum the frequencies over and over until one of the resulting
+    //frequencies is repeated
     protected void dayOneLogic(int currentFrequency, int changeOf){
         if(showMeFrequencies.equals("Y") || showMeFrequencies.equals("y")){
             System.out.println("Currrent frequency: "+this.currentFrequency+", change of "+changeOf+"; resulting frequency "+(currentFrequency+(changeOf)));  
